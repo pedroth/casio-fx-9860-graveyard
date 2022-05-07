@@ -1,0 +1,46 @@
+0->A~Z
+AxesOn
+1->Dim  List 2
+1->Dim  List 3
+1->Dim  List 1
+0×List 1
+0×List 2
+0×List 3
+1->Z
+1->M
+1->N
+Lbl 1
+"W=(Z), Z=X+B[i]"
+""
+""
+"W=(X,Y[i])"?->f_1
+"(X,Y)MIN"?->G
+"(X,Y)MAX"?->H
+G->X
+G->Y
+Lbl 2
+Y=H⇒Goto 3
+X=H⇒Y+0.25->Y
+X=H⇒G->X
+f_1->List 1[N]
+X+0.25->X
+N+1->N
+Goto 2
+Lbl 3
+Lbl 4
+For 1->N To  Dim  List 1
+((List 1[N])+(List 1[N]))÷(2)->List 2[N]
+Next 
+For 1->N To  Dim  List 1
+(List 1[N]-List 1[N])÷(2[i])->List 3[N]
+Next 
+Lbl 5
+ViewWindow Min(List 2),Max(List 2),1,Min(List 3),Max(List 3),1
+1->N
+Lbl 6
+N=Dim  List 2⇒Goto 6
+List 2[N]->X
+List 3[N]->Y
+PlotOn X,Y
+N+1->N
+Goto 6

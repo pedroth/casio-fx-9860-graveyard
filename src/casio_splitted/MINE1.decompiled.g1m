@@ -1,0 +1,15 @@
+lLbl 1
+0->V
+0->W
+AxesOff
+ViewWindow 0,20,1,0,6,1
+Lbl 2
+V=20⇒Goto 3
+F-Line V,0,V,6
+V+1->V
+Goto 2
+Lbl 3
+W=20⇒Prog"MINE1.5"
+F-Line 0,W,20,W
+W+1->W
+Goto 3

@@ -1,0 +1,67 @@
+L0->A~Z
+Lbl 1
+10->U
+Int 20+0.5->V
+Int 6+0.5->W
+Lbl 2
+Z=1⇒Goto 3
+Z=2⇒Goto 4
+Z=3⇒Goto 5
+Z=4⇒Goto 6
+Z=5⇒Goto 7
+Z=6⇒Goto 8
+Z=7⇒Goto 9
+Z=8⇒Goto A
+Z=9⇒Goto B
+Z=10⇒Goto C
+Z+1->Z
+V->S
+W->T
+Goto 1
+Lbl 3
+Z+1->Z
+V->A
+W->B
+Goto 1
+Lbl 4
+Z+1->Z
+V->C
+W->D
+Goto 1
+Lbl 5
+Z+1->Z
+V->E
+W->F
+Goto 1
+Lbl 6
+Z+1->Z
+V->G
+W->H
+Goto 1
+Lbl 7
+Z+1->Z
+V->I
+W->J
+Goto 1
+Lbl 8
+Z+1->Z
+V->K
+W->L
+Goto 1
+Lbl 9
+Z+1->Z
+V->M
+W->N
+Goto 1
+Lbl A
+Z+1->Z
+V->O
+W->P
+Goto 1
+Lbl B
+Z+1->Z
+V->Q
+W->R
+Goto 1
+Lbl C
+Prog"MINE1"

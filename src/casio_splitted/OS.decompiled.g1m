@@ -1,0 +1,103 @@
+AxesOff
+0->W
+45->A
+85->B
+1->Z
+Lbl 0
+ViewWindow 0,99,1,0,99,1
+D=95⇒Goto 5
+Lbl 1
+Text 1,1,"PROGRAMS"
+Text 1,37,":"
+F-Line 0,85,35,85
+F-Line 35,85,35,99
+Z=4⇒Goto 7
+Lbl 2
+While Z=1
+If GetKey=27
+Then Z+1->Z
+IfEnd
+WhileEnd
+Lbl 3
+A≤75⇒A-5->A
+F-Line 38,99,A,99
+F-Line A,99,A,B
+F-Line A,B,38,B
+F-Line 38,B,38,99
+Z=3⇒B≤0⇒Goto 4
+A+5->A
+B-5->B
+3->Z
+Goto 0
+Lbl 4
+60->C
+85->D
+Lbl 5
+F-Line 38,99,A,99
+F-Line A,99,A,B
+F-Line A,B,38,B
+F-Line 38,B,38,99
+Text 2,50,"SPACE"
+Text 12,50,"3D"
+Text 22,50,"VECTOR"
+Text 32,50,"QUATER"
+Text 42,50,"AREA"
+Text 52,50,"PISUAZE"
+Text 55,82,""
+Lbl 6
+D=5⇒Goto 7
+PlotChg (C+1),D
+PlotOff (C+1),(D-10)
+PlotOff (C+1),(D+10)
+If GetKey=28
+Then D+10->D
+IfEnd
+If GetKey=37
+Then D-10->D
+IfEnd
+If GetKey=31
+Then 1->W
+IfEnd
+While W=1
+D=95⇒F-Line 38,85,A,85
+D=95⇒Prog"SPACE"
+D=75⇒F-Line 38,70,A,70
+D=75⇒Prog"3D0"
+WhileEnd
+Goto 6
+Lbl 7
+Z=4⇒Goto 8
+4->Z
+ViewWindow 0,99,1,0,99,1
+Goto 1
+Lbl 8
+F-Line 38,99,A,99
+F-Line A,99,A,B
+F-Line A,B,38,B
+F-Line 38,B,38,99
+Text 2,50,"3D"
+Text 12,50,"VECTOR"
+Text 22,50,"QUATER"
+Text 32,50,"AREA"
+Text 42,50,"PISUAZE"
+Text 52,50,"SCREEN"
+Text 2,82,""
+5->Z
+Lbl 9
+D=95⇒Goto 0
+PlotChg (C+1),D
+PlotOff (C+1),(D-10)
+PlotOff (C+1),(D+10)
+If GetKey=28
+Then D+10->D
+IfEnd
+If GetKey=37
+Then D-10->D
+IfEnd
+If GetKey=31
+Then 2->W
+IfEnd
+While W=2
+
+WhileEnd
+Goto 9

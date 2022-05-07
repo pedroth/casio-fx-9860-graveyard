@@ -1,0 +1,94 @@
+ClrList 1
+ClrList 2
+0->A~Z
+AxesOff
+Norm 1
+1->N
+0->X
+0->Y
+10->I
+ClrText
+ClrGraph
+Lbl 1
+"G(X,Y)=U(X,Y),V(X,Y)"
+""
+"U(X,Y)=Z"?->f_1
+"V(X,Y)=W"?->f_2
+"(X,Y)MIN"?->A
+"(X,Y)MAX"?->B
+"CAPACITY(1->1000)"?->S
+A->X
+A->Y
+(Abs (B-A))->C
+Abs ((Cꜚ(Int (√S))))->D
+ClrText
+ClrGraph
+ViewWindow 0,120,1,0,15,1
+F-Line 10,5,110,5
+F-Line 110,5,110,10
+F-Line 110,10,10,10
+F-Line 10,10,10,5
+Lbl 2
+((N÷S)×100)->E
+(Int E)+10->I
+N≤S⇒Goto 3
+X≤B⇒Y+D->Y
+X≤B⇒A->X
+Text 5,5,(Int E)
+F-Line I,5,I,10
+f_1->List 1[N]
+f_2->List 2[N]
+X+D->X
+N+1->N
+Goto 2
+Lbl 3
+ClrText
+ClrGraph
+AxesOn
+Norm 1
+While Z=0
+Locate 5,5,"HQ[EXE]"
+Locate 5,3,"FAST[-]"
+GetKey
+Ans=31⇒Goto 4
+Ans=41⇒Goto 5
+WhileEnd
+Lbl 4
+ClrText
+ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
+1->N
+For 1->O To  Dim  List 1-1
+O=N(((Abs (B-A))÷D))⇒O+1->O
+O≤N(((Abs (B-A))÷D))⇒N+1->N
+F-Line List 1[O],List 2[O],List 1[O+1],List 2[O+1]
+Next 
+For 1->O To  (((Abs (B-A))÷D))²-(((Abs (B-A))÷D))
+F-Line List 1[O],List 2[O],List 1[O+(((Abs (B-A))÷D))],List 2[O+(((Abs (B-A))÷D))]
+Next 
+Goto 6
+Lbl 5
+ClrText
+DrawStat
+Stop
+Lbl 6
+Text 3,3,"END"
+2->O
+Lbl 7
+While Z=0
+GetKey
+Ans=79⇒Goto A
+WhileEnd
+Lbl A
+O=1⇒O+1->O
+O=998⇒O-1->O
+PlotOn List 1[O-1],List 2[O-1]
+PlotOn List 1[O+1],List 2[O+1]
+PlotChg List 1[O],List 2[O]
+Text 58,1,"Z="
+Text 58,8,List 1[O]
+Text 58,65,"W="
+Text 58,73,List 2[O]
+GetKey
+Ans=27⇒O+1->O
+Ans=38⇒O-1->O
+Goto A

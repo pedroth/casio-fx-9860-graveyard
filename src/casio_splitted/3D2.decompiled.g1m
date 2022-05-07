@@ -1,0 +1,27 @@
+0->Z
+0->E
+0->F
+Lbl 1
+Z=1⇒Goto 2
+Z=3⇒Goto 3
+Z=5⇒1->W
+Z=5⇒Prog"3D1"
+Locate 3,5,"Y="
+Locate 5,5,"cos "
+Locate 9,5,E
+Locate 11,5,"(X)"
+Locate 13,4,F
+If GetKey=31
+Then Z+1->Z
+IfEnd
+Goto 1
+Lbl 2
+"A"?->E
+Z+1->Z
+ClrText
+Goto 1
+Lbl 3
+"B"?->F
+Z+1->Z
+ClrText
+Goto 1

@@ -1,0 +1,106 @@
+
+Prog"Z1"
+{2,2}->Dim  Mat A
+AxesOn
+1->N
+LabelOff
+Lbl 0
+"V-WINDOW"
+"XMIN"?->Mat A[1,1]
+"XMAX"?->Mat A[1,2]
+"YMIN"?->Mat A[2,1]
+"YMAX"?->Mat A[2,2]
+Int (Mat A[1,2]÷2)->X
+(Mat A[2,2]÷2)->Y
+(((Mat A[1,2])-(Mat A[1,1]))÷50)->H
+(Mat A[2,1]-Mat A[2,2])÷25->V
+Lbl 1
+ViewWindow Mat A[1,1],Mat A[1,2],1,Mat A[2,1],Mat A[2,2],1
+Lbl 2
+While W=0
+While Z=0
+Text 58,90,"PLOT OFF"
+X<(Mat A[1,1])⇒X+H->X
+Y<(Mat A[2,1])⇒Y-V->Y
+Y>(Mat A[2,2])⇒Y+V->Y
+X>(Mat A[1,2])⇒X-H->X
+PlotOn X,Y
+If GetKey=28
+Then PlotOff X,Y
+Y-V->Y
+IfEnd
+If GetKey=37
+Then PlotOff X,Y
+Y+V->Y
+IfEnd
+If GetKey=27
+Then PlotOff X,Y
+X+H->X
+IfEnd
+If GetKey=38
+Then PlotOff X,Y
+X-H->X
+IfEnd
+If GetKey=63
+Then X->List 1[N]
+Y->List 2[N]
+2->S
+2->Z
+IfEnd
+If GetKey=31
+Then 3->Z
+IfEnd
+WhileEnd
+While Z=1
+Text 58,90,"PLOT ON"
+If GetKey=28
+Then Y-V->Y
+2->S
+2->Z
+IfEnd
+If GetKey=37
+Then Y+V->Y
+2->S
+2->Z
+IfEnd
+If GetKey=27
+Then X+H->X
+2->S
+2->Z
+IfEnd
+If GetKey=38
+Then X-H->X
+2->S
+2->Z
+IfEnd
+If GetKey=31
+Then 3->Z
+IfEnd
+If GetKey=63
+Then 2->Z
+1->S
+N+1->N
+[i]->List 1[N]
+[i]->List 2[N]
+N+1->N
+IfEnd
+If GetKey=79
+Then N+1->N
+X->List 1[N]
+Y->List 2[N]
+2->S
+2->Z
+IfEnd
+WhileEnd
+While Z=2
+ViewWindow Mat A[1,1],Mat A[1,2],1,Mat A[2,1],Mat A[2,2],1
+X<(Mat A[1,1])⇒X+H->X
+Y<(Mat A[2,1])⇒Y-V->Y
+Y>(Mat A[2,2])⇒Y+V->Y
+X>(Mat A[1,2])⇒X-H->X
+F-Line List 1[N],List 2[N],X,Y
+S=1⇒0->Z
+S=2⇒1->Z
+WhileEnd
+WhileEnd
+Prog"2DTO3D2"
