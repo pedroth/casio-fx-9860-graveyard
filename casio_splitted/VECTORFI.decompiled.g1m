@@ -1,0 +1,82 @@
+
+
+
+
+
+
+
+
+ClrGraph
+AxesOff
+ClrList 1
+ClrList 2
+ClrList 3
+ClrList 4
+0->A~Z
+{2,2}->Dim  Mat A
+{2,1}->Dim  Mat B
+"F,G:R²->R²"
+""
+"(X,Y)->((F(X,Y)),(G(X,Y)))"
+""
+1->N
+Lbl 0
+"F(X,Y)"?->f_1
+"G(X,Y)"?->f_2
+"(X,Y)MIN"?->A
+"(X,Y)MAX"?->B
+(1)->R
+Lbl 1
+"STEP"?->K
+(Abs (B-A))->C
+Abs ((Cꜚ(Int (√600))))->D
+A->X
+A->Y
+(C÷K)²->F
+K≤D⇒Goto 3
+Lbl 2
+K<D⇒"HIGHER STEP"
+K<D⇒Goto 1
+Lbl 3
+While Z=0
+Y≤B+K⇒1->Z
+X≤B+K⇒Y+K->Y
+X≤B+K⇒A->X
+X->List 1[N]
+Y->List 2[N]
+f_1->List 3[N]
+f_2->List 4[N]
+X+K->X
+N+1->N
+WhileEnd
+List 1+List 3->List 3
+List 2+List 4->List 4
+List 3->List 3
+List 4->List 4
+Lbl 4
+For 1->N To Dim  List 1
+F-Line List 1[N],List 2[N],List 3[N],List 4[N]
+Next 
+
+cos (π÷6)->Mat B[1,1]
+sin (π÷6)->Mat B[2,1]
+For 1->N To Dim  List 1
+List 3[N]->Mat A[1,1]
+List 4[N]-1->Mat A[2,1]
+List 3[N]-1->Mat A[1,2]
+List 4[N]->Mat A[2,2]
+Mat A×Mat B->Mat C
+F-Line List 3[N],List 4[N],R×Mat C[1,1],R×Mat C[2,1]
+Next 
+cos (π÷3)->Mat B[1,1]
+sin (π÷3)->Mat B[2,1]
+For 1->N To Dim  List 1
+List 3[N]->Mat A[1,1]
+List 4[N]-1->Mat A[2,1]
+List 3[N]-1->Mat A[1,2]
+List 4[N]->Mat A[2,2]
+Mat A×Mat B->Mat C
+F-Line List 3[N],List 4[N],R×Mat C[1,1],R×Mat C[2,1]
+Next 
+
+

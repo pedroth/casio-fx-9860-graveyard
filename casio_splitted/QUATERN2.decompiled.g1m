@@ -1,0 +1,135 @@
+
+
+
+
+
+
+
+P=1⇒Goto D
+0->Z
+0->Q
+0->N
+4->V
+3->W
+6->X
+10->M
+Lbl 0
+A>9 Or B>9 Or C>9 Or D>9⇒7->X
+A>99 Or B>99 Or C>99 Or D>99⇒8->X
+E>9 Or F>9 Or G>9 Or H>9⇒M+1->M
+E>99 Or F>99 Or G>99 Or H>99⇒M+2->M
+W=7⇒14->V
+W=7⇒X+M->X
+W=7⇒3->W
+Locate V,W,"("
+Locate X,W,")"
+W+1->W
+W=7 And V=14⇒Goto 1
+Goto 0
+Lbl 1
+Locate 5,6,D
+Locate 5,5,C
+Locate 5,4,B
+Locate 5,3,A
+Locate 10,5,"×"
+Locate 15,6,H
+Locate 15,5,G
+Locate 15,4,F
+Locate 15,3,E
+Lbl 2
+Q=1⇒Goto C
+If GetKey=31
+Then (2×N+1)->Z
+1->Q
+IfEnd
+Goto 2
+Lbl 3
+"P1"?->A
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl 4
+"ℹ1"?->B
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl 5
+"J1"?->C
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl 6
+"K1"?->D
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl 7
+"P2"?->E
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl 8
+"ℹ2"?->F
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl A
+"J2"?->G
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl B
+"K2"?->H
+N+1->N
+ClrText
+0->Q
+Goto 1
+Lbl C
+Z=1⇒Goto 3
+Z=3⇒Goto 4
+Z=5⇒Goto 5
+Z=7⇒Goto 6
+Z=9⇒Goto 7
+Z=11⇒Goto 8
+Z=13⇒Goto A
+Z=15⇒Goto B
+Z=17⇒Goto D
+Lbl D
+{4,1}->Dim  Mat B
+{4,4}->Dim  Mat A
+{A,B,C,D}->List 1
+{E,F,G,H}->List 2
+List->Mat(1)->Mat B
+Lbl E
+List 1[1]->Mat B[1,1]
+List 1[2]->Mat B[2,1]
+List 1[3]->Mat B[3,1]
+List 1[4]->Mat B[4,1]
+List 2[1]->Mat A[1,1]
+-List 2[2]->Mat A[1,2]
+-List 2[3]->Mat A[1,3]
+-List 2[4]->Mat A[1,4]
+List 2[2]->Mat A[2,1]
+List 2[1]->Mat A[2,2]
+List 2[4]->Mat A[2,3]
+-List 2[3]->Mat A[2,4]
+List 2[3]->Mat A[3,1]
+List 2[4]->Mat A[3,2]
+List 2[1]->Mat A[3,3]
+-List 2[2]->Mat A[3,4]
+List 2[4]->Mat A[4,1]
+List 2[3]->Mat A[4,2]
+-List 2[2]->Mat A[4,3]
+List 2[1]->Mat A[4,4]
+Mat A×Mat B
+Mat Ans◢
+
+
+

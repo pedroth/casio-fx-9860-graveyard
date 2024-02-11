@@ -1,0 +1,227 @@
+
+
+
+
+
+
+
+
+ClrList 1
+ClrList 2
+ClrList 3
+ClrList 4
+ClrList 5
+ClrList 6
+ClrList 7
+ClrList 8
+ClrMat A
+ClrMat B
+ClrMat C
+ClrMat D
+AxesOff
+0->A~Z
+(π÷3)->A
+π÷6->B
+{cos B,sin B,0}->List 4
+{-sin B,cos B,0}->List 5
+{0,0,1}->List 6
+List->Mat(4,5,6)->Mat A
+{cos (-B),0,-sin (-B)}->List 4
+{0,1,0}->List 5
+{sin (-B),0,cos (-B)}->List 6
+List->Mat(4,5,6)->Mat B
+{1,0,0}->List 4
+{0,cos (-B),-sin (-B)}->List 5
+{0,sin (-B),cos (-B)}->List 6
+List->Mat(4,5,6)->Mat C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+ClrList 4
+ClrList 5
+ClrList 6
+ClrList 7
+ClrList 8
+"Y=F(X,Z)"?->f_1
+"X,Z MIN"?->I
+"X,Z MAX"?->J
+Lbl θ
+"STEP"?->K
+I->X
+I->Z
+(Abs (J-I))÷(√250)->L
+K<L⇒"HIGHER STEP"
+K<L⇒Goto θ
+1->H
+(((Abs (J-I))÷(K))+1)²->D
+While W=0
+H≤D⇒1->W
+X>J⇒Z+K->Z
+X>J⇒I->X
+X->List 1[H]
+Z->List 3[H]
+f_1->List 2[H]
+X+K->X
+Isz H
+WhileEnd
+Lbl r
+List->Mat(1,2,3)->Mat E
+Trn (Mat E)->Mat E
+Mat D×Mat E->Mat F
+Trn Mat F->Mat F
+Mat->List(F,1)->List 4
+Mat->List(F,2)->List 5
+Lbl 0
+ViewWindow Min(List 4)-1,Max(List 4)+1,1,Min(List 5)-0.5,Max(List 5)+0.5,1
+F-Line -cos A,-sin A,cos A,sin A
+F-Line -cos C,-sin C,cos C,sin C
+F-Line 0,-1,0,1
+Text 57,65,"["
+Text 57,70,"Z"
+Text 57,90,"Y"
+Text 57,110,"X"
+Text 57,120,"]"
+Lbl 1
+For 1->O To Dim  List 25-1
+F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
+Next 
+1->N
+For 1->O To (Dim  List 4)-1
+O=N(((Abs (J-I))÷K)+1)⇒O+1->O
+O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
+F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
+Next 
+For 1->O To (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
+F-Line List 4[O],List 5[O],List 4[O+(((Abs (J-I))÷K)+1)],List 5[O+(((Abs (J-I))÷K)+1)]
+Next 
+While U=0
+GetKey
+Ans=29⇒Goto 3
+Ans=39⇒Goto 4
+Ans=49⇒Goto 5
+Ans=28⇒1->U
+Ans=27⇒2->U
+Ans=37⇒3->U
+Ans=38⇒4->U
+Ans=32⇒5->U
+Ans=31⇒6->U
+Ans=53⇒7->U
+Ans=73⇒8->U
+Ans=62⇒9->U
+Ans=64⇒10->U
+U≠0⇒Goto 6
+WhileEnd
+Lbl 2
+Mat D×Mat E->Mat F
+Trn Mat F->Mat F
+Mat->List(F,1)->List 4
+Mat->List(F,2)->List 5
+Goto 0
+Lbl 3
+Mat C×Mat E->Mat E
+Goto 2
+Lbl 4
+Mat B×Mat E->Mat E
+Goto 2
+Lbl 5
+Mat A×Mat E->Mat E
+Goto 2
+Lbl 6
+While U=1
+List 2+0.25->List 2
+0->U
+Goto r
+WhileEnd
+While U=2
+List 1+0.25->List 1
+0->U
+Goto r
+WhileEnd
+While U=3
+List 2-0.25->List 2
+0->U
+Goto r
+WhileEnd
+While U=4
+List 1-0.25->List 1
+0->U
+Goto r
+WhileEnd
+While U=5
+List 3+0.25->List 3
+0->U
+Goto r
+WhileEnd
+While U=6
+List 3-0.25->List 3
+ClrList 4
+ClrList 5
+ClrList 6
+ClrList 7
+ClrList 8
+0->U
+Goto r
+WhileEnd
+While U=7
+A-(π÷12)->A
+C-(π÷12)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->U
+Goto 2
+WhileEnd
+While U=8
+A+(π÷12)->A
+C-(π÷12)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->U
+Goto 2
+WhileEnd
+While U=9
+A-(π÷12)->A
+C+(π÷24)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->U
+Goto 2
+WhileEnd
+While U=10
+A+(π÷12)->A
+C-(π÷24)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->U
+Goto 2
+WhileEnd
+
+

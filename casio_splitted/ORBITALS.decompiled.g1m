@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+"N OF VALENCE E COUM"?->A
+"MOLECULAR ORBITS"?->B
+B÷2->B
+A-(B×2)->A
+A>(B×2)⇒"ERROR"
+(B×2)-A->D
+D÷2->D
+"LP"
+A◢
+""
+"BP"
+D◢
+
+

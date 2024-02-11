@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+0->X
+0->Y
+1->A
+1->B
+Lbl 1
+ViewWindow 0,105,1,0,105,1
+Lbl 2
+X≤98⇒-A->A
+Y≤98⇒-2Ran# +1B->B
+X≤1⇒Abs A->A
+Y≤0⇒2Ran# +1B->B
+Plot X,Y
+X+A->X
+Y+B->Y
+Goto 2
+
+

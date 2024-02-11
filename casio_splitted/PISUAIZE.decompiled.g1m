@@ -1,0 +1,71 @@
+
+
+
+
+
+
+
+0->A~Z
+AxesOn
+Lbl 1
+Z=1⇒Goto 2
+Z=3⇒Goto 3
+Z=5⇒Goto 4
+Z=7⇒Goto 5
+Z=9⇒Goto 6
+Locate 3,2,"f_1"
+Locate 10,2,"IF X≤"
+Locate 16,2,E
+Locate 3,5,"f_2"
+Locate 10,5,"IF X>"
+Locate 16,5,F
+If GetKey=31
+Then Z+1->Z
+IfEnd
+If GetKey=41
+Then Z-2->Z
+IfEnd
+Goto 1
+Lbl 2
+"f(X)"?->f_1
+Z+1->Z
+ClrText
+Goto 1
+Lbl 3
+"X≤"?->E
+Z+1->Z
+ClrText
+Goto 1
+Lbl 4
+"f(X)"?->f_2
+Z+1->Z
+ClrText
+Goto 1
+Lbl 5
+"X>"?->F
+Z+1->Z
+ClrText
+Goto 1
+Lbl 6
+"XMIN"?->G
+"XMAX"?->H
+"YMIN"?->I
+"YMAX"?->J
+G->X
+Lbl A
+ClrText
+ViewWindow G,H,1,I,J,1
+Lbl B
+X=E⇒Goto C
+PlotOn X,f_1
+X+0.05->X
+Goto B
+Lbl C
+X=H⇒Goto D
+PlotOn X,f_2
+X+0.05->X
+Goto C
+Lbl D
+Goto D
+
+

@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+{2,1}->Dim  Mat Z
+{2,2}->Dim  Mat Y
+cos (π÷6)->Mat Y[1,1]
+-sin (π÷6)->Mat Y[1,2]
+sin (π÷6)->Mat Y[2,1]
+cos (π÷6)->Mat Y[2,2]
+0->Z
+1->N
+Dim  List 3->C
+Lbl 1
+ViewWindow -10,10,1,-10,10,1
+Z=1⇒Goto 6
+Lbl 2
+N=C⇒Goto 3
+List 3[N]->X
+List 4[N]->Y
+PlotOn X,Y
+N+1->N
+Goto 2
+Lbl 3
+If GetKey=31
+Then 1->N
+Goto 4
+IfEnd
+Goto 3
+Lbl 4
+N=C⇒Goto 5
+List 3[N]->X
+List 4[N]->Y
+X->Mat Z[1,1]
+Y->Mat Z[2,1]
+Mat Y×Mat Z->Mat X
+Mat X[1,1]->List 5[N]
+Mat X[2,1]->List 6[N]
+N+1->N
+Goto 4
+Lbl 5
+1->N
+1->Z
+Goto 1
+Lbl 6
+N=C⇒Goto 7
+List 5[N]->X
+List 6[N]->Y
+PlotOn X,Y
+N+1->N
+Goto 6
+Lbl 7
+If GetKey=31
+Then 1->N
+Goto 8
+IfEnd
+Goto 7
+Lbl 8
+List 5->List 3
+List 6->List 4
+Goto 3
+
+
+

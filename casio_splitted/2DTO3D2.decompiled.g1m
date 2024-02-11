@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+Lbl r
+If Dim  List 1≠Dim  List 2 And Dim  List 1≠Dim  List 2
+Then Stop
+IfEnd
+0->A~Z
+1->N
+1->M
+1->O
+1->P
+Lbl 0
+While Z=0
+M>Dim  List 1⇒Goto 1
+List 1[M]=ℹ⇒M+1->M
+List 1[M]->A
+List 2[M]->B
+M+1->M
+While U=0
+List 3[N]=A⇒List 4[N]->C
+List 3[N]=A⇒1->U
+List 3[N]=A⇒ℹ->List 3[N]
+N+1->N
+WhileEnd
+While U=1
+O◢
+List 5[O]=C And List 6[O]=B⇒2->U
+O+1->O
+WhileEnd
+While U=2
+A->List 7[P]
+B->List 8[P]
+C->List 9[P]
+P+1->P
+1->N
+1->O
+0->U
+WhileEnd
+WhileEnd
+Lbl 1
+Stop
+
+

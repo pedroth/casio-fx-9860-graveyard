@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+
+
+
+Rad
+AxesOn
+Lbl 0
+U=1⇒0.0625->G
+U=2⇒1->G
+U=3⇒0.5->G
+ViewWindow A,B,1,C,D,1
+Graph Y=X
+W=1⇒Goto 1
+W=2⇒Goto 2
+W=3⇒Goto 3
+W=4⇒Goto 4
+W=5⇒Goto 5
+Lbl 1
+C=D⇒Goto 1
+Graph Y=cos (EX^(F)-A)+C
+C+G->C
+A+G->A
+Goto 1
+Lbl 2
+C=D⇒Goto 2
+Graph Y=√(E-(X-A)^(F))+C
+C+G->C
+A+G->A
+Goto 2
+Lbl 3
+C=D⇒Goto 3
+Graph Y=(E(X-A)^F)+C
+C+G->C
+A+G->A
+Goto 3
+
+

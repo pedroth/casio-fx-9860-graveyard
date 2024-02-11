@@ -1,0 +1,272 @@
+
+
+
+
+
+
+
+
+AxesOff
+Rad
+ClrList 1
+ClrList 2
+ClrList 3
+ClrList 4
+ClrList 5
+ClrList 6
+ClrList 7
+ClrList 8
+ClrMat A
+ClrMat B
+ClrMat C
+ClrMat D
+LabelOff
+AxesOff
+0->A~Z
+π÷3->A
+1->N
+π÷24->B
+{-1,1,0,0,0,0,0,0}->List 24
+{0,0,0,-1,1,0,0,0}->List 25
+{0,0,0,0,0,0,-1,1}->List 26
+List->Mat(24,25,26)->Mat A
+Trn Mat A->Mat A
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+ClrList 4
+ClrList 5
+ClrList 6
+ClrList 7
+ClrList 8
+"Y=F(X,Z)"?->f_1
+"X,Z MIN"?->I
+"X,Z MAX"?->J
+I->R
+Lbl θ
+"STEP"?->K
+I->X
+I->Z
+(Abs (J-I))÷(√249)->L
+K<L⇒"HIGHER STEP"
+K<L⇒Goto θ
+1->H
+(((Abs (J-I))÷(K))+1)²->D
+While W=0
+H≤D⇒1->W
+X>J⇒Z+K->Z
+X>J⇒I->X
+X->List 1[H]
+Z->List 3[H]
+f_1->List 2[H]
+X+K->X
+Isz H
+WhileEnd
+Lbl r
+ClrList 24
+ClrList 25
+ClrList 26
+List->Mat(1,2,3)->Mat E
+Trn (Mat E)->Mat E
+Mat D×Mat E->Mat F
+Trn Mat F->Mat F
+Mat->List(F,1)->List 4
+Mat->List(F,2)->List 5
+Mat D×Mat A->Mat G
+Trn Mat G->Mat G
+Mat->List(G,1)->List 25
+Mat->List(G,2)->List 26
+Lbl 0
+Min(List 4)<0⇒1->P
+Min(List 4)>0⇒-1->P
+Min(List 5)<0⇒1->Q
+Min(List 5)>0⇒-1->Q
+ViewWindow Min(List 4)+P×0.40×Min(List 4),Max(List 4)+0.40×Max(List 4),1,Min(List 5)+Q×0.40×Min(List 5),Max(List 5)+0.40×Max(List 5),1
+Lbl 1
+0->Z
+For 1->O To Dim  List 25-1
+F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
+Next 
+1->N
+For 1->O To (Dim  List 4)-1
+O=N(((Abs (J-I))÷K)+1)⇒O+1->O
+O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
+F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
+Next 
+For 1->O To (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
+F-Line List 4[O],List 5[O],List 4[O+(((Abs (J-I))÷K)+1)],List 5[O+(((Abs (J-I))÷K)+1)]
+Next 
+
+W=2⇒Goto 6
+Lbl A
+While Z=0
+GetKey
+Ans=27⇒Goto 4
+Ans=28⇒Goto 3
+Ans=37⇒2->Z
+Ans=38⇒1->Z
+Ans=53⇒7->Z
+Ans=73⇒8->Z
+Ans=79⇒9->Z
+Z≠0⇒Goto 5
+WhileEnd
+Lbl 2
+Mat D×Mat E->Mat F
+Trn Mat F->Mat F
+Mat->List(F,1)->List 4
+Mat->List(F,2)->List 5
+Mat D×Mat A->Mat G
+Trn Mat G->Mat G
+Mat->List(G,1)->List 25
+Mat->List(G,2)->List 26
+Goto 0
+Lbl 3
+Abs (B)->B
+{1,0,0}->List 4
+{0,cos B,-sin B}->List 5
+{0,sin B,cos B}->List 6
+List->Mat(4,5,6)->Mat C
+Mat C×Mat E->Mat E
+Mat C×Mat A->Mat A
+Goto 2
+Lbl 4
+Abs B->B
+{cos B,0,-sin B}->List 4
+{0,1,0}->List 5
+{sin B,0,cos B}->List 6
+List->Mat(4,5,6)->Mat B
+Mat B×Mat E->Mat E
+Mat B×Mat A->Mat A
+Goto 2
+Lbl 5
+While Z=1
+-B->B
+{cos B,0,-sin B}->List 4
+{0,1,0}->List 5
+{sin B,0,cos B}->List 6
+List->Mat(4,5,6)->Mat B
+Mat B×Mat E->Mat E
+Mat B×Mat A->Mat A
+-B->B
+0->Z
+Goto 2
+WhileEnd
+While Z=2
+-B->B
+{1,0,0}->List 4
+{0,cos B,-sin B}->List 5
+{0,sin B,cos B}->List 6
+List->Mat(4,5,6)->Mat C
+Mat C×Mat E->Mat E
+Mat C×Mat A->Mat A
+-B->B
+0->Z
+Goto 2
+WhileEnd
+While Z=7
+A-(π÷12)->A
+C-(π÷12)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->Z
+Goto 2
+WhileEnd
+While Z=8
+A+(π÷12)->A
+C-(π÷12)->C
+{cos C,0,cos A}->List 7
+{sin C,1,sin A}->List 8
+List->Mat(7,8)->Mat D
+Trn Mat D->Mat D
+0×List 4->List 4
+List 4->List 5
+List 4->List 6
+List 4->List 7
+List 4->List 8
+0->Z
+Goto 2
+WhileEnd
+While Z=9
+Text 58,1,"[X=C]"
+Text 58,20,"[Z=C]"
+Text 58,40,"[Y=0]"
+If GetKey=79
+Then 10->Z
+IfEnd
+If GetKey=69
+Then 11->Z
+IfEnd
+If GetKey=59
+Then "3DROOTS"
+IfEnd
+WhileEnd
+1->N
+While Z=10
+(N(((Abs (J-I))÷K)+1))>D⇒N-1->N
+N<1⇒N+1->N
+R>J⇒R-K->R
+R<I⇒R+K->R
+ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
+AxesOn
+For 1+((N-1)(((Abs (J-I))÷K)+1))->O To (N(((Abs (J-I))÷K)+1))-1
+F-Line List 1[O],List 2[O],List 1[O+1],List 2[O+1]
+Next 
+10.5->Z
+While Z=10.5
+Text 1,1,"Z="
+Text 1,10,R
+If GetKey=28
+Then R+K->R
+N+1->N
+10->Z
+IfEnd
+If GetKey=37
+Then R-K->R
+N-1->N
+10->Z
+IfEnd
+If GetKey=31
+Then Stop
+IfEnd
+WhileEnd
+WhileEnd
+While Z=11
+N>(((Abs (J-I))÷K)+1)⇒N-1->N
+N<1⇒N+1->N
+R>J⇒R-K->R
+R<I⇒R+K->R
+ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
+AxesOn
+For 1->O To (((Abs (J-I))÷K)
+F-Line List 3[N+(O-1)(((Abs (J-I))÷K)+1)],List 2[N+(O-1)(((Abs (J-I))÷K)+1)],List 3[N+(O)(((Abs (J-I))÷K)+1)],List 2[N+(O)(((Abs (J-I))÷K)+1)]
+Next 
+11.5->Z
+While Z=11.5
+Text 1,1,"X="
+Text 1,10,R
+If GetKey=28
+Then R+K->R
+N+1->N
+11->Z
+IfEnd
+If GetKey=37
+Then R-K->R
+N-1->N
+11->Z
+IfEnd
+If GetKey=31
+Then Stop
+IfEnd
+WhileEnd
+WhileEnd
+
+
+

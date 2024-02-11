@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+
+
+1->Dim  List 1
+1->Dim  List 2
+Prog"Z1"
+AxesOff
+1->Dim  List 1
+1->Dim  List 2
+1->N
+{2,2}->Dim  Mat A
+"VWINDOW"
+""
+"X MIN"?->Mat A[1,1]
+"X MAX"?->Mat A[1,2]
+"Y MIN"?->Mat A[2,1]
+"Y MAX"?->Mat A[2,2]
+"(X,Y)->(F(X,Y),G(X,Y)"
+"F(X,Y)="?->f_1
+"G(X,Y)="?->f_2
+"XMIN"?->I
+"XMAX"?->J
+I->X
+I->Y
+(Abs (J-I))÷(√500)->L
+Lbl r
+"STEP"?->K
+((Abs (J-I))÷(√500))->D
+K<L⇒"HIGHER STEP"
+K<L⇒Goto r
+((((Abs (J-I))÷(K))+1)²->C
+Lbl 1
+While Z=0
+N≤C⇒Z+1->Z
+X>J⇒Y+K->Y
+X>J⇒I->X
+X->List 1[N]
+Y->List 2[N]
+X+K->X
+N+1->N
+WhileEnd
+Lbl 2
+While Z=1
+ViewWindow Mat A[1,1],Mat A[1,2],1,Mat A[2,1],Mat A[2,2],1
+1->N
+While F=1
+For 1->O To Dim  List 1
+PlotOn List 1[O],List 2[O]
+Next 
+2->Z
+π->F
+Goto 2
+WhileEnd
+For 1->O To C-1
+O=N(((Abs (J-I))÷K)+1)⇒O+1->O
+O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
+F-Line List 1[O],List 2[O],List 1[O+1],List 2[O+1]
+Next 
+For 1->O To (((Abs (J-I))÷K)+1)²-(((Abs (J-I))÷K)+1)
+F-Line List 1[O],List 2[O],List 1[O+(((Abs (J-I))÷K)+1)],List 2[O+(((Abs (J-I))÷K)+1)]
+Next 
+2->Z
+R=1⇒3->Z
+WhileEnd
+While Z=2
+If GetKey=28
+Then List 2+1->List 2
+1->Z
+IfEnd
+If GetKey=27
+Then List 1+1->List 1
+1->Z
+IfEnd
+If GetKey=37
+Then List 2-1->List 2
+1->Z
+IfEnd
+If GetKey=38
+Then List 1-1->List 1
+1->Z
+IfEnd
+If GetKey=31
+Then 3->Z
+IfEnd
+If GetKey=63
+Then 1->F
+1->Z
+IfEnd
+F=π⇒1->F
+WhileEnd
+While Z=3
+For 1->N To Dim  List 1
+List 1[N]->X
+List 2[N]->Y
+X+f_1×0.1->List 3[N]
+Y+f_2×0.1->List 4[N]
+Next 
+List 3->List 1
+List 4->List 2
+ClrList 3
+ClrList 4
+1->Z
+1->R
+WhileEnd
+Goto 2
+

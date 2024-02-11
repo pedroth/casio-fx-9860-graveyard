@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+"VWINDOW"
+"X MIN"?->A
+"X MAX"?->B
+"Y MIN"?->C
+"Y MAX"?->D
+"cos AX^(B)[1]"
+"AX^(B)[2]"
+"√(A-X^B)[5]"
+""?->Z
+"HD[(1)Y\(2)N\(3)M]"?->U
+ClrText
+Z=1⇒Prog"3D2"
+Z=5⇒Prog"3D3"
+Z=2⇒Prog"3D4"
+
+
+

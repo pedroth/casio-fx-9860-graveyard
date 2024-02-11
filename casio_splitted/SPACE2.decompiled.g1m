@@ -1,0 +1,100 @@
+
+
+
+
+
+
+
+Z=1⇒Goto 1
+1->Q
+0->M
+20->Y
+2->B
+1->A
+100->C
+Lbl 1
+M=P⇒0->M
+20->X
+Int 7Ran# +1->D
+Int 7Ran# +1->E
+Int 10Ran# +1->N
+M+1->M
+H+1->H
+Lbl 2
+H≤200⇒Goto 7
+M=N⇒Goto 5
+A≤8⇒A-1->A
+A≤0⇒A+1->A
+X≤0⇒Goto 1
+Locate 1,A,""
+If GetKey=37
+Then A+1->A
+IfEnd
+If GetKey=28
+Then A-1->A
+IfEnd
+If GetKey=63
+Then Goto 4
+IfEnd
+Locate X,D,""
+Locate X,E,""
+X-B->X
+Locate 19,7,C
+X≤1⇒A=E Or A=D⇒C-10->C
+C≤0⇒Goto 3
+ClrText
+Goto 2
+Lbl 3
+0->Z
+100->C
+"U LOSE"
+"AGAIN"
+""
+""
+"SCORE"
+H◢
+"PRESS EXE."
+Stop
+Lbl 4
+"SCORE"
+C÷10->C
+H×C◢
+Lbl 5
+M=N⇒0->M
+Int 10Ran# +1->P
+Int 19Ran# +1->I
+Int 19Ran# +1->J
+Int 19Ran# +1->K
+Int 19Ran# +1->L
+1->Q
+M+1->M
+H+1->H
+Lbl 6
+M=P⇒Goto 1
+Y≤20⇒Y-1->Y
+Y≤0⇒Y+1->Y
+Q≤7⇒Goto 5
+Locate Y,7,"°"
+If GetKey=27
+Then Y+1->Y
+IfEnd
+If GetKey=38
+Then Y-1->Y
+IfEnd
+Locate I,Q,"▼"
+Locate J,Q,"▼"
+Locate K,Q,"▼"
+Locate L,Q,"▼"
+Q+Int (B÷2)->Q
+Locate 19,7,C
+Y=I Or Y=J Or Y=K Or Y=L⇒Q=7⇒C-10->C
+C≤0⇒Goto 3
+ClrText
+Goto 6
+Lbl 7
+ClrText
+Text 50,50,"LEVEL 2"
+
+
+
+

@@ -1,0 +1,227 @@
+
+
+
+
+
+
+
+0->A~Z
+Rad
+Lbl 0
+ClrText
+Locate 5,1,">>>GRAPH 3D<<<"
+Locate 1,3,"[NEW ]"
+Locate 2,4,"LOAD"
+Locate 2,5,"SAVE"
+Locate 2,6,"INFO"
+Locate 2,7,"VIEW"
+1->M
+Lbl 1
+Do
+GetKey
+LpWhile ((Ans=28) Or (Ans=37) Or (Ans=27) Or (Ans=31))=0
+If Ans=31
+Then For 1->N To 7
+Locate 8,5,"USE <REPLAY>"
+Locate 8,5,"            "
+Next 
+Goto 1
+IfEnd
+If Ans≠27
+Then Locate 1,2+M," "
+Locate 6,2+M," "
+Ans=28⇒M>1⇒DszM
+Ans=37⇒M<5⇒Isz M
+Locate 1,2+M,"["
+Locate 6,2+M,"]"
+Goto 1
+IfEnd
+If M=5
+Then Prog"G3D-VIEW"
+Goto 0
+IfEnd
+Locate 7,M+2,"->"
+If M=1
+Then Locate 9,3,"SQUARE GRAPH "
+Locate 9,4,"PARAMETERED"
+Locate 9,5,"LISTS..."
+3->N
+IfEnd
+If M=2 Or M=3
+Then For 3->N To 7
+Locate 9,N,"FILE"
+Locate 14,N,N-2
+Next 
+5->N
+IfEnd
+If M=4
+Then Cls
+Text 7,48,"GRAPH 3D"
+Text 20,59,"BY"
+Text 33,45,"NEURONIX"
+Text 48,18,"WWW.PLANETECASIO.COM"◢
+Goto 0
+IfEnd
+1->L
+Locate 8,2+L,"["
+Locate 21,2+L,"]"
+Lbl 2
+Do
+GetKey
+LpWhile ((Ans=28) Or (Ans=37) Or (Ans=27) Or (Ans=38))=0
+If Ans=38
+Then For 7->N To 3 Step ‒1
+Locate 7,N,"               "
+Next 
+Goto 1
+IfEnd
+If Ans≠27
+Then Locate 8,2+L," "
+Locate 21,2+L," "
+Ans=28⇒L>1⇒DszL
+Ans=37⇒L<N⇒Isz L
+Locate 8,2+L,"["
+Locate 21,2+L,"]"
+Goto 2
+IfEnd
+If M>1
+Then If M=3
+Then L=1⇒Mat B->Mat E
+L=2⇒Mat B->Mat F
+L=3⇒Mat B->Mat G
+L=4⇒Mat B->Mat H
+L=5⇒Mat B->Mat I
+Else L=1⇒Mat E->Mat B
+L=2⇒Mat F->Mat B
+L=3⇒Mat G->Mat B
+L=4⇒Mat H->Mat B
+L=5⇒Mat I->Mat B
+IfEnd
+For 1->K To 5
+Locate 19,2+L,"OK"
+Locate 19,2+L,"  "
+Next 
+0->K
+Goto 2
+IfEnd
+L-1->O
+If O<2
+Then ClrText
+Lbl A
+" "
+" "
+O=0⇒Locate 6,1,"SQUARE GRAPH"
+O=1⇒Locate 3,1,"PARAMETERED GRAPH"
+Locate 1,2,"GRADUATION X"
+O=0⇒Locate 13,2,"Y"
+"(2~15)"?->P
+If O=1
+Then "GRADUATION Y"
+"(2~15)"?->Q
+ClrText
+Q<2 Or Q>15⇒Goto A
+IfEnd
+ClrText
+P<2 Or P>15⇒Goto A
+Lbl B
+" "
+Locate 1,1,"NUMBER RANGE X"
+O=0⇒Locate 15,1,"Y"
+" "
+" "
+Locate 1,2,"(EXEMPLE:[‒π,π]"
+Locate 1,3,"START=‒π , END=π)"
+"START"?->R
+"END"?->S
+If O=1
+Then ClrText
+"NUMBER RANGE Y"
+"START"?->T
+"END"?->U
+IfEnd
+If P>5 Or Q>5
+Then ClrText
+Locate 6,4,"PLEASE WAIT"
+IfEnd
+1->M
+{P,1}->Dim  Mat C
+For R->N To S Step ((S-R)÷(P-1))
+N->Mat C[M,1]
+Isz M
+Next 
+If O=1
+Then {Q,1}->Dim  Mat D
+1->M
+For T->N To U Step ((U-T)÷(Q-1))
+N->Mat D[M,1]
+Isz M
+Next 
+IfEnd
+Else ClrText
+"NUNBER OF LISTS
+1=List 1
+2=List 1 And List 2
+(1~2)"?->K
+K=1⇒Dim  List 1->Dim  List 2
+If Dim  List 1>15 Or Dim  List 2>15
+Then ClrText:Locate 8,3,"ERROR«"
+Locate 2,5,"(Dim  List 1/2 >15)":Stop
+IfEnd
+ClrText
+If K=1
+Then ClrText
+"RELATION f_1(X)=Y
+ENTER FORMULA THEN:  [OPTN]->[F6]->[F6]->[F3]->[F1]->[F1]->[EXE]
+Y="?->X
+ClrText
+Locate 6,4,"PLEASE WAIT"
+(Dim  List 1)->Dim  List 2
+For 1->M To Dim  List 1
+List 1[M]->X
+f_1->List 2[M]
+Next 
+Dim  List 1->P~Q
+List->Mat(1)->Mat C
+List->Mat(2)->Mat D
+Else Dim  List 1->P
+Dim  List 2->Q
+List->Mat(1)->Mat C
+List->Mat(2)->Mat D
+IfEnd
+IfEnd
+O=0⇒P->Q
+P×Q->Dim  List 1
+P×Q->Dim  List 2
+P×Q->Dim  List 3
+1->L
+For 1->M To Q
+O=0⇒Mat C[M,1]->Y
+O≠0⇒Mat D[M,1]->Y
+For 1->N To P
+Mat C[N,1]->List 1[L]
+Y->List 2[L]
+Isz L
+Next 
+Next 
+ClrText
+"RELATION f_1(X,Y)=Z
+ENTER FORMULA THEN:  [OPTN]->[F6]->[F6]->[F3]->[F1]->[F1]->[EXE]
+(EX: Z=cos (X×Y))
+Z="?->f_1
+ClrText
+Locate 6,4,"PLEASE WAIT"
+For 1->M To P×Q
+List 1[M]->X
+List 2[M]->Y
+f_1->List 3[M]
+Next 
+List->Mat(1,2,3)->Mat B
+1->Dim  List 1
+1->Dim  List 2
+1->Dim  List 3
+{1,1}->Dim  Mat C
+{1,1}->Dim  Mat D
+Goto 0
+
+
+

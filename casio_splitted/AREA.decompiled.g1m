@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+50->A
+60->B
+1->C
+50->X
+50->Y
+60->W
+Lbl 1
+ViewWindow 1,99,1,1,99,1
+B≤99⇒-C->C
+A≤0⇒-C->C
+F-Line A,A,A,B
+F-Line A,B,B,B
+F-Line B,B,B,A
+F-Line B,A,A,A
+A+C->A
+B+C->B
+If GetKey=32
+Then B+1->B
+IfEnd
+If GetKey=31
+Then B-1->B
+IfEnd
+If GetKey=63
+Then 50->A
+60->B
+Goto 2
+IfEnd
+Goto 1
+Lbl 2
+X≤60⇒X-0.5->X
+X≤50⇒X+0.5->X
+X≤60⇒Goto 3
+F-Line A,A,A,B
+F-Line B,A,A,A
+F-Line B,B,B,A
+F-Line A,B,B,B
+F-Line X,Y,X,W
+X+0.5->X
+Goto 2
+Lbl 3
+
+
+
+
