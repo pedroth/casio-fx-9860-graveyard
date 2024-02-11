@@ -3,7 +3,7 @@ const [file2split] = process.argv.slice(2);
 const SPLIT_STRING = /PROGRAM$/gm;
 
 function getFileNameFromFile(file) {
-  return file.slice(21, 29);
+  return file.slice(21, 29).trim();
 }
 
 function processFile(file) {
