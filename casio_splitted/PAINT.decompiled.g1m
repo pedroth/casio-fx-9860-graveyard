@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 1->Dim  List 1
 A=1⇒Goto 2
 Lbl 1
@@ -72,3 +79,6 @@ If GetKey=31
 Then Prog"PAINT2"
 IfEnd
 Goto 3
+
+
+

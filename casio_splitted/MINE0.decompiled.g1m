@@ -1,8 +1,15 @@
-L0->A~Z
+
+
+
+
+
+
+
+0->A~Z
 Lbl 1
 10->U
-Int 20+0.5->V
-Int 6+0.5->W
+Int 20Ran# +0.5->V
+Int 6Ran# +0.5->W
 Lbl 2
 Z=1⇒Goto 3
 Z=2⇒Goto 4
@@ -65,3 +72,7 @@ W->R
 Goto 1
 Lbl C
 Prog"MINE1"
+
+
+
+

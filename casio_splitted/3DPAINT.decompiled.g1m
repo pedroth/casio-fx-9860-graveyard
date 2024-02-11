@@ -1,14 +1,21 @@
-P1->Dim  List 1
+
+
+
+
+
+
+
+1->Dim  List 1
 List 1->List 2
 List 1->List 3
 List 1->List 25
 List 1->List 26
-Rad
-AxesOn
+ï¿½
+ï¿½ï¿½
 0->A~Z
-"θ"?->A
-ViewWindow 0,5+5cos A,1,0,5+5sin A
-F-Line 0,0,5+5cos A,5+5sin A
+"ï¿½G"?->A
+ï¿½0,5ï¿½5ï¿½A,1,0,5ï¿½5ï¿½A
+ï¿½ï¿½0,0,5ï¿½5ï¿½A,5ï¿½5ï¿½A
 {3,1}->Dim  Mat Z
 3->X
 1->Y
@@ -17,130 +24,136 @@ F-Line 0,0,5+5cos A,5+5sin A
 0->U
 0->Z
 1->N
-Lbl 0
-X≤Int (5+5cos A)⇒X-0.5->X
-X≤-0.5⇒X+0.5->X
-Y≤Int (5(1+sin A))⇒Y-0.5->Y
-Y≤-0.5⇒Y+0.5->Y
-M>7.5⇒M-0.5->M
-M<0⇒M+0.5->M
-P>7.5⇒P-0.5->P
-P<0⇒P+0.5->P
-U>7.5⇒U-0.5->U
-U<0⇒U+0.5->U
-PlotOn X,Y
-If GetKey=28
-Then PlotOff X,Y
-Y+0.5->Y
-P+0.5->P
+ï¿½0
+X≤ï¿½(5ï¿½5ï¿½A)⇒Xï¿½0.5->X
+X≤ï¿½0.5⇒Xï¿½0.5->X
+Y≤ï¿½(5(1ï¿½ï¿½A))⇒Yï¿½0.5->Y
+Y≤ï¿½0.5⇒Yï¿½0.5->Y
+M>7.5⇒Mï¿½0.5->M
+M<0⇒Mï¿½0.5->M
+P>7.5⇒Pï¿½0.5->P
+P<0⇒Pï¿½0.5->P
+U>7.5⇒Uï¿½0.5->U
+U<0⇒Uï¿½0.5->U
+ï¿½ï¿½X,Y
+ï¿½
+ï¿½=28
+ï¿½fï¿½ï¿½X,Y
+Yï¿½0.5->Y
+Pï¿½0.5->P
 P->Mat Z[2,1]
-IfEnd
-If GetKey=27
-Then PlotOff X,Y
-X+0.5->X
-M+0.5->M
+ï¿½
+ï¿½
+ï¿½=27
+ï¿½fï¿½ï¿½X,Y
+Xï¿½0.5->X
+Mï¿½0.5->M
 M->Mat Z[1,1]
-IfEnd
-If GetKey=37
-Then PlotOff X,Y
-Y-0.5->Y
-P-0.5->P
+ï¿½
+ï¿½
+ï¿½=37
+ï¿½fï¿½ï¿½X,Y
+Yï¿½0.5->Y
+Pï¿½0.5->P
 P->Mat Z[2,1]
-IfEnd
-If GetKey=38
-Then PlotOff X,Y
-X-0.5->X
-M-0.5->M
+ï¿½
+ï¿½
+ï¿½=38
+ï¿½fï¿½ï¿½X,Y
+Xï¿½0.5->X
+Mï¿½0.5->M
 M->Mat Z[1,1]
-IfEnd
-If GetKey=32
-Then PlotOff X,Y
-X+(0.5)cos A->X
-Y+(0.5)sin A->Y
-U+0.5->U
+ï¿½
+ï¿½
+ï¿½=32
+ï¿½fï¿½ï¿½X,Y
+Xï¿½(0.5)ï¿½A->X
+Yï¿½(0.5)ï¿½A->Y
+Uï¿½0.5->U
 U->Mat Z[3,1]
-IfEnd
-If GetKey=31
-Then PlotOff X,Y
-X-(0.5)cos A->X
-Y-(0.5)sin A->Y
-U-0.5->U
+ï¿½
+ï¿½
+ï¿½=31
+ï¿½fï¿½ï¿½X,Y
+Xï¿½(0.5)ï¿½A->X
+Yï¿½(0.5)ï¿½A->Y
+Uï¿½0.5->U
 U->Mat Z[3,1]
-IfEnd
-If GetKey=63
-Then X->V
+ï¿½
+ï¿½
+ï¿½=63
+ï¿½fX->V
 Y->W
 V->List 25[N]
 W->List 26[N]
 M->List 1[N]
 P->List 2[N]
 U->List 3[N]
-Goto 1
-IfEnd
-Goto 0
-Lbl 1
-ViewWindow 0,5+5cos A,1,0,5+5sin A
-F-Line 0,0,5+5cos A,5+5sin A
-M>7.5⇒M-0.5->M
-M<0⇒M+0.5->M
-P>7.5⇒P-0.5->P
-P<0⇒P+0.5->P
-U>7.5⇒U-0.5->U
-U<0⇒U+0.5->U
-While Z=1
-For 1->O To  Dim  List 1
-List 1[O]+cos A×List 3[O]->List 25[O]
-List 2[O]+sin A×List 3[O]->List 26[O]
-Next 
-For 1->O To  (Dim  List 25)-1
-F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
-Next 
+ï¿½1
+ï¿½
+ï¿½0
+ï¿½1
+ï¿½0,5ï¿½5ï¿½A,1,0,5ï¿½5ï¿½A
+ï¿½ï¿½0,0,5ï¿½5ï¿½A,5ï¿½5ï¿½A
+M>7.5⇒Mï¿½0.5->M
+M<0⇒Mï¿½0.5->M
+P>7.5⇒Pï¿½0.5->P
+P<0⇒Pï¿½0.5->P
+U>7.5⇒Uï¿½0.5->U
+U<0⇒Uï¿½0.5->U
+ï¿½Z=1
+ï¿½1->Oï¿½Dim  List 1
+List 1[O]ï¿½ï¿½Aï¿½List 3[O]->List 25[O]
+List 2[O]ï¿½ï¿½Aï¿½List 3[O]->List 26[O]
+ï¿½
+ï¿½1->Oï¿½(Dim  List 25)ï¿½1
+ï¿½ï¿½List 25[O],List 26[O],List 25[Oï¿½1],List 26[Oï¿½1]
+ï¿½
 0->Z
-WhileEnd
-X≤Int (5+5cos A)⇒X-0.5->X
-X≤-0.5⇒X+0.5->X
-Y≤Int (5(1+sin A))⇒Y-0.5->Y
-Y≤-0.5⇒Y+0.5->Y
-F-Line X,Y,V,W
-If GetKey=28
-Then W+0.5->W
-P+0.5->P
+ï¿½	
+X≤ï¿½(5ï¿½5ï¿½A)⇒Xï¿½0.5->X
+X≤ï¿½0.5⇒Xï¿½0.5->X
+Y≤ï¿½(5(1ï¿½ï¿½A))⇒Yï¿½0.5->Y
+Y≤ï¿½0.5⇒Yï¿½0.5->Y
+ï¿½ï¿½X,Y,V,W
+ï¿½
+ï¿½=28
+ï¿½fWï¿½0.5->W
+Pï¿½0.5->P
 P->Mat Z[2,1]
-IfEnd
-If GetKey=27
-Then V+0.5->V
-M+0.5->M
+ï¿½
+ï¿½
+ï¿½=27
+ï¿½fVï¿½0.5->V
+Mï¿½0.5->M
 M->Mat Z[1,1]
-IfEnd
-If GetKey=37
-Then W-0.5->W
-P-0.5->P
+ï¿½
+ï¿½
+ï¿½=37
+ï¿½fWï¿½0.5->W
+Pï¿½0.5->P
 P->Mat Z[2,1]
-IfEnd
-If GetKey=38
-Then V-0.5->V
-M-0.5->M
+ï¿½
+ï¿½
+ï¿½=38
+ï¿½fVï¿½0.5->V
+Mï¿½0.5->M
 M->Mat Z[1,1]
-IfEnd
-If GetKey=32
-Then V+(0.5)cos A->V
-W+(0.5)sin A->W
-U+0.5->U
+ï¿½
+ï¿½
+ï¿½=32
+ï¿½fVï¿½(0.5)ï¿½A->V
+Wï¿½(0.5)ï¿½A->W
+Uï¿½0.5->U
 U->Mat Z[3,1]
-IfEnd
-If GetKey=31
-Then V-(0.5)cos A->V
-W-(0.5)sin A->W
-U-0.5->U
+ï¿½
+ï¿½
+ï¿½=31
+ï¿½fVï¿½(0.5)ï¿½A->V
+Wï¿½(0.5)ï¿½A->W
+Uï¿½0.5->U
 U->Mat Z[3,1]
-IfEnd
-If GetKey=79
-Then N+1->N
-M->List 1[N]
-P->List 2[N]
-U->List 3[N]
-V->X
-W->Y
-IfEnd
-1->Z
-Goto 1
+ï¿½
+ï¿½
+ï¿½=79
+ï¿½fNï¿½1->N

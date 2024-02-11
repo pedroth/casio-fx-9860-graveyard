@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 Prog"Z1"
 {2,2}->Dim  Mat A
 AxesOn
@@ -80,8 +86,8 @@ If GetKey=63
 Then 2->Z
 1->S
 N+1->N
-[i]->List 1[N]
-[i]->List 2[N]
+ℹ->List 1[N]
+ℹ->List 2[N]
 N+1->N
 IfEnd
 If GetKey=79
@@ -104,3 +110,7 @@ S=2⇒1->Z
 WhileEnd
 WhileEnd
 Prog"2DTO3D2"
+
+
+
+

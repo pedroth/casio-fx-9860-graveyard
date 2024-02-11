@@ -1,4 +1,11 @@
-≤P=1⇒Goto D
+
+
+
+
+
+
+
+P=1⇒Goto D
 0->Z
 0->Q
 0->N
@@ -43,7 +50,7 @@ ClrText
 0->Q
 Goto 1
 Lbl 4
-"[i]1"?->B
+"ℹ1"?->B
 N+1->N
 ClrText
 0->Q
@@ -67,7 +74,7 @@ ClrText
 0->Q
 Goto 1
 Lbl 8
-"[i]2"?->F
+"ℹ2"?->F
 N+1->N
 ClrText
 0->Q
@@ -122,4 +129,7 @@ List 2[3]->Mat A[4,2]
 -List 2[2]->Mat A[4,3]
 List 2[1]->Mat A[4,4]
 Mat A×Mat B
-Mat Ans𐏐
+Mat Ans◢
+
+
+

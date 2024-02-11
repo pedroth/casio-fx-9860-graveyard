@@ -1,4 +1,11 @@
-T0->A~Z:0->ř:Deg:AxesOff:x:ClrList :ClrGraph:40->B:0->C:‒40->C:1->Z:15->E
+
+
+
+
+
+
+
+0->A~Z:0->r:Deg:AxesOff:BG-None:ClrList :ClrGraph:40->B:0->C:‒40->C:1->Z:15->E
 Lbl 0
 Text 1,1,"[    ]"
 Mat->List(Mat B,1)->List 1
@@ -41,14 +48,14 @@ IfEnd
 Lbl Y
 1->J
 Do
-For J->A To  J+(P-1)
+For J->A To J+(P-1)
 A≠J⇒F-Line List 4[A-1],List 5[A-1],List 4[A],List 5[A]
 A>P⇒F-Line List 4[A],List 5[A],List 4[A-P],List 5[A-P]
 Next 
 J+P->J
 LpWhile A<Dim  List 4
-Lbl ř
-If ř=1
+Lbl r
+If r=1
 Then Text 30,95,"X,Z "
 Text 30,110,B
 Text 4,89,"X,Y"
@@ -67,9 +74,9 @@ Do
 GetKey
 LpWhile Ans=0
 If Ans=39
-Then Abs (ř-1)->ř
-ř=0⇒Goto X
-Goto ř
+Then Abs (r-1)->r
+r=0⇒Goto X
+Goto r
 IfEnd
 If Ans=47 Or Ans=48
 Then Return
@@ -87,25 +94,25 @@ IfEnd
 If Ans=32 Or Ans=42
 Then Ans=32⇒Z<2⇒Z+.25->Z
 Ans=42⇒Z>0.25⇒Z-.25->Z
-ZMin(>
-Z->
-Z->
-Z->
-
+ZXmin->Xmin
+ZXmax->Xmax
+ZYmin->Ymin
+ZYmax->Ymax
+Cls
 Goto Y
 IfEnd
 Ans≠29⇒Goto 0
 ClrText
 "MANUAL MODE:"
-"X,Y ANGLE(    )"
+"X,Y ANGLE(    °)"
 Locate 11,2,B
 ?->B
 ClrText
-"X,Z ANGLE(    )"
+"X,Z ANGLE(    °)"
 Locate 11,1,C
 ?->C
 ClrText
-"X,Y ANGLE(    )"
+"X,Y ANGLE(    °)"
 Locate 11,1,D
 ?->D
 ClrText
@@ -117,3 +124,5 @@ ClrText
 Locate 6,1,2-Z
 ?->Z:2-Z->Z
 Goto 0
+
+

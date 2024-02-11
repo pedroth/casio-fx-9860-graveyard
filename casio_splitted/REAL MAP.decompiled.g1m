@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 ClrList 1
 ClrList 2
 0->A~Z
@@ -52,18 +60,18 @@ WhileEnd
 Lbl 4
 ClrText
 ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 PlotOn List 1[N],List 2[N]
 Next 
 Goto 6
 Lbl 5
 ClrText
-DrawStat
+
 Stop
 Lbl 6
 Text 3,3,"END"
 2->O
-5
+ä5
 Lbl 7
 While Z=0
 GetKey
@@ -83,3 +91,6 @@ GetKey
 Ans=27⇒O+1->O
 Ans=38⇒O-1->O
 Goto A
+
+
+

@@ -1,4 +1,11 @@
-01->Dim  List 1
+
+
+
+
+
+
+
+1->Dim  List 1
 1->Dim  List 2
 Prog"Z1"
 AxesOff
@@ -98,16 +105,20 @@ Ans=31⇒3->Z
 WhileEnd
 While Z=3
 
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 List 1[N]->X
 List 2[N]->Y
 X+f_1×0.1->List 3[N]
 Y+f_2×0.1->List 4[N]
 Next 
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 F-Line List 1[N],List 2[N],List 3[N],List 4[N]
 Next 
 List 3->List 1
 List 4->List 2
 WhileEnd
 Goto 4
+
+
+
+

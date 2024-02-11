@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 0->A~Z
 AxesOn
 1->Dim  List 2
@@ -10,10 +17,10 @@ AxesOn
 1->M
 1->N
 Lbl 1
-"W=(Z), Z=X+B[i]"
+"W=f(Z), Z=X+Bℹ"
 ""
 ""
-"W=(X,Y[i])"?->f_1
+"W=f(X,Yℹ)"?->f_1
 "(X,Y)MIN"?->G
 "(X,Y)MAX"?->H
 G->X
@@ -28,11 +35,11 @@ N+1->N
 Goto 2
 Lbl 3
 Lbl 4
-For 1->N To  Dim  List 1
-((List 1[N])+(List 1[N]))÷(2)->List 2[N]
+For 1->N To Dim  List 1
+((List 1[N])+(Conjg List 1[N]))÷(2)->List 2[N]
 Next 
-For 1->N To  Dim  List 1
-(List 1[N]-List 1[N])÷(2[i])->List 3[N]
+For 1->N To Dim  List 1
+(List 1[N]-Conjg List 1[N])÷(2ℹ)->List 3[N]
 Next 
 Lbl 5
 ViewWindow Min(List 2),Max(List 2),1,Min(List 3),Max(List 3),1
@@ -44,3 +51,4 @@ List 3[N]->Y
 PlotOn X,Y
 N+1->N
 Goto 6
+

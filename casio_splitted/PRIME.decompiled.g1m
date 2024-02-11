@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 0->A~Z
 1->Dim  List 1
 0×List 1->List 1
@@ -11,18 +18,22 @@
 1->X
 Lbl 1
 R=N⇒Goto 2
-(1÷N)×(NR)->A
+(1÷N)×(NR)->A
 A->List 1[M]
 R+1->R
 M+1->M
 Goto 1
 Lbl 2
-L(List 1)≤0.2⇒N->List 2[O]
-L(List 1)≤0.2⇒O+1->O
-L(List 1)≤0.2⇒Locate 5,5,N
+(¶List 1)≤0.2⇒N->List 2[O]
+(¶List 1)≤0.2⇒O+1->O
+(¶List 1)≤0.2⇒Locate 5,5,N
 N+1->N
 1->R
 1->Dim  List 1
 0×List 1->List 1
 1->M
 Goto 1
+
+
+
+

@@ -21,7 +21,7 @@ try {
     const fileName = getFileNameFromFile(fileStr);
     const processedFile = processFile(fileStr);
     fs.writeFileSync(
-      `${dir}/${fileName}_decompiled.g1m`,
+      `${dir}/${fileName}.decompiled.g1m`,
       processedFile
     );
   });

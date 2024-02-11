@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 LabelOff
 AxesOff
 0->A~Z
@@ -19,7 +27,7 @@ ClrList 5
 ClrList 6
 ClrList 7
 ClrList 8
-Lbl ř
+Lbl r
 ClrList 24
 ClrList 25
 ClrList 26
@@ -40,10 +48,10 @@ Min(List 5)<0⇒1->Q
 Min(List 5)>0⇒-1->Q
 ViewWindow Min(List 4)+P×2×Min(List 4),Max(List 4)+2×Max(List 4),1,Min(List 5)+Q×2×Min(List 5),Max(List 5)+2.0×Max(List 5),1
 Lbl 1
-For 1->O To  (Dim  List 4)-1
+For 1->O To (Dim  List 4)-1
 F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
 Next 
-For 1->O To  Dim  List 25-1
+For 1->O To Dim  List 25-1
 F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
 Next 
 While Z=0
@@ -139,3 +147,7 @@ List 4->List 8
 0->Z
 Goto 2
 WhileEnd
+
+
+
+

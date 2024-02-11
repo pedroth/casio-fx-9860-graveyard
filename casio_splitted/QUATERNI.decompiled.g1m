@@ -1,4 +1,15 @@
-xROOT0->A~Z
+
+
+
+
+
+
+
+
+
+
+
+0->A~Z
 Lbl 1
 "Q1"
 "A"?->A
@@ -19,5 +30,7 @@ Lbl 1
 Lbl 2
 ClrText
 {M,N,O,P}->List 25
-List 25𐏐
+List 25◢
+
+
 

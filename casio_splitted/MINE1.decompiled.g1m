@@ -1,4 +1,11 @@
-lLbl 1
+
+
+
+
+
+
+
+Lbl 1
 0->V
 0->W
 AxesOff
@@ -13,3 +20,4 @@ W=20⇒Prog"MINE1.5"
 F-Line 0,W,20,W
 W+1->W
 Goto 3
+

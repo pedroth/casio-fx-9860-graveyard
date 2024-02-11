@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 0->A~Z
 AxesOn
 Lbl 1
@@ -20,7 +27,7 @@ Then Z-2->Z
 IfEnd
 Goto 1
 Lbl 2
-"(X)"?->f_1
+"f(X)"?->f_1
 Z+1->Z
 ClrText
 Goto 1
@@ -30,7 +37,7 @@ Z+1->Z
 ClrText
 Goto 1
 Lbl 4
-"(X)"?->f_2
+"f(X)"?->f_2
 Z+1->Z
 ClrText
 Goto 1
@@ -60,3 +67,5 @@ X+0.05->X
 Goto C
 Lbl D
 Goto D
+
+

@@ -1,4 +1,11 @@
-,Lbl ř
+
+
+
+
+
+
+
+Lbl r
 If Dim  List 1≠Dim  List 2 And Dim  List 1≠Dim  List 2
 Then Stop
 IfEnd
@@ -10,18 +17,18 @@ IfEnd
 Lbl 0
 While Z=0
 M>Dim  List 1⇒Goto 1
-List 1[M]=[i]⇒M+1->M
+List 1[M]=ℹ⇒M+1->M
 List 1[M]->A
 List 2[M]->B
 M+1->M
 While U=0
 List 3[N]=A⇒List 4[N]->C
 List 3[N]=A⇒1->U
-List 3[N]=A⇒[i]->List 3[N]
+List 3[N]=A⇒ℹ->List 3[N]
 N+1->N
 WhileEnd
 While U=1
-O𐏐
+O◢
 List 5[O]=C And List 6[O]=B⇒2->U
 O+1->O
 WhileEnd
@@ -37,3 +44,5 @@ WhileEnd
 WhileEnd
 Lbl 1
 Stop
+
+

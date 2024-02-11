@@ -1,4 +1,13 @@
-Ans1->C
+
+
+
+
+
+
+
+
+
+1->C
 1->B
 0->A
 0->X
@@ -21,9 +30,10 @@ Lbl 2
 A+0.5->A
 Goto 1
 Lbl 3
-sin (X-A)
+Graph Y=sin (X-A)
 A+0.5->A
 If GetKey=41
 Then 0->B
 IfEnd
 Goto 0
+

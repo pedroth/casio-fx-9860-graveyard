@@ -1,4 +1,12 @@
-PAxesOff
+
+
+
+
+
+
+
+
+AxesOff
 Rad
 ClrList 1
 ClrList 2
@@ -55,7 +63,7 @@ f_1->List 2[H]
 X+K->X
 Isz H
 WhileEnd
-Lbl ř
+Lbl r
 ClrList 24
 ClrList 25
 ClrList 26
@@ -77,16 +85,16 @@ Min(List 5)>0⇒-1->Q
 ViewWindow Min(List 4)+P×0.40×Min(List 4),Max(List 4)+0.40×Max(List 4),1,Min(List 5)+Q×0.40×Min(List 5),Max(List 5)+0.40×Max(List 5),1
 Lbl 1
 0->Z
-For 1->O To  Dim  List 25-1
+For 1->O To Dim  List 25-1
 F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
 Next 
 1->N
-For 1->O To  (Dim  List 4)-1
+For 1->O To (Dim  List 4)-1
 O=N(((Abs (J-I))÷K)+1)⇒O+1->O
 O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
 F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
 Next 
-For 1->O To  (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
+For 1->O To (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
 F-Line List 4[O],List 5[O],List 4[O+(((Abs (J-I))÷K)+1)],List 5[O+(((Abs (J-I))÷K)+1)]
 Next 
 
@@ -208,7 +216,7 @@ R>J⇒R-K->R
 R<I⇒R+K->R
 ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
 AxesOn
-For 1+((N-1)(((Abs (J-I))÷K)+1))->O To  (N(((Abs (J-I))÷K)+1))-1
+For 1+((N-1)(((Abs (J-I))÷K)+1))->O To (N(((Abs (J-I))÷K)+1))-1
 F-Line List 1[O],List 2[O],List 1[O+1],List 2[O+1]
 Next 
 10.5->Z
@@ -237,7 +245,7 @@ R>J⇒R-K->R
 R<I⇒R+K->R
 ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
 AxesOn
-For 1->O To  (((Abs (J-I))÷K)
+For 1->O To (((Abs (J-I))÷K)
 F-Line List 3[N+(O-1)(((Abs (J-I))÷K)+1)],List 2[N+(O-1)(((Abs (J-I))÷K)+1)],List 3[N+(O)(((Abs (J-I))÷K)+1)],List 2[N+(O)(((Abs (J-I))÷K)+1)]
 Next 
 11.5->Z
@@ -259,3 +267,6 @@ Then Stop
 IfEnd
 WhileEnd
 WhileEnd
+
+
+

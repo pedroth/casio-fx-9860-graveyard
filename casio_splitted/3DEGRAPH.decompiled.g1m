@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 Prog"Z1"
 AxesOff
 π÷3->A
@@ -39,7 +46,7 @@ f_1->List 2[H]
 X+K->X
 Isz H
 WhileEnd
-Lbl ř
+Lbl r
 ClrList 24
 ClrList 25
 ClrList 26
@@ -61,16 +68,16 @@ Min(List 5)>0⇒-1->Q
 ViewWindow Min(List 4)+P×0.40×Min(List 4)-1,Max(List 4)+0.40×Max(List 4)+1,1,Min(List 5)+Q×0.40×Min(List 5)-1,Max(List 5)+0.40×Max(List 5)+1,1
 Lbl 1
 0->Z
-For 1->O To  Dim  List 25-1
+For 1->O To Dim  List 25-1
 F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
 Next 
 1->N
-For 1->O To  (Dim  List 4)-1
+For 1->O To (Dim  List 4)-1
 O=N(((Abs (J-I))÷K)+1)⇒O+1->O
 O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
 F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
 Next 
-For 1->O To  (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
+For 1->O To (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
 F-Line List 4[O],List 5[O],List 4[O+(((Abs (J-I))÷K)+1)],List 5[O+(((Abs (J-I))÷K)+1)]
 Next 
 W=2⇒Goto 6
@@ -170,3 +177,7 @@ List 4->List 8
 0->Z
 Goto 2
 WhileEnd
+
+
+
+

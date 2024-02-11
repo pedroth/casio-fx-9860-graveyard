@@ -1,4 +1,11 @@
-lProg"Z1"
+
+
+
+
+
+
+
+Prog"Z1"
 1->D
 2->E
 1->N
@@ -155,17 +162,17 @@ Ans=37⇒B+1->B
 Ans=28⇒B-1->B
 Ans=37 Or Ans=28⇒0->Z
 Ans=31 And B=1⇒Goto 6
-Ans=31 And B=2⇒Goto ř
+Ans=31 And B=2⇒Goto r
 Ans=31 And B=3⇒Prog"TRANS1"
 WhileEnd
 Goto 5
-Lbl ř
+Lbl r
 1->Dim  List 1
 1->Dim  List 2
 Stop
 Lbl 6
 ClrText
-For 1->D To  7
+For 1->D To 7
 Locate 2,1,"SAVE"
 Locate D,E,"SLOT1"
 Locate D,E+1,"SLOT2"
@@ -216,3 +223,5 @@ List->Mat(1,2)->Mat Z
 Stop
 WhileEnd
 Goto 7
+
+

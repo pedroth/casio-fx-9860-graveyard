@@ -1,21 +1,28 @@
- Prog"Z1"
+
+
+
+
+
+
+
+Prog"Z1"
 1->N
 Lbl 0
-"Z=X+Y[i]"
+"Z=X+Yℹ"
 "F(Z)=W"
-"W=U(X,Y)+V(X,Y)[i]"
+"W=U(X,Y)+V(X,Y)ℹ"
 ""
-"F(X+Y[i])=W"?->f_1
+"F(X+Yℹ)=W"?->f_1
 "XMIN"?->I
 "XMAX"?->J
 I->X
 I->Y
 (Abs (J-I))÷(√500)->L
-Lbl ř
+Lbl r
 "STEP"?->K
 ((Abs (J-I))÷(√500))->D
 K<L⇒"HIGHER STEP"
-K<L⇒Goto ř
+K<L⇒Goto r
 ViewWindow 0,120,1,0,20,1
 F-Line 10,5,110,5
 F-Line 10,5,10,10
@@ -36,7 +43,7 @@ f_1->List 1[N]
 X+K->X
 N+1->N
 WhileEnd
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 ReP (List 1[N])->List 2[N]
 ImP (List 1[N])->List 3[N]
 Next 
@@ -47,11 +54,13 @@ Min(List 3)<0⇒1->Q
 Min(List 3)>0⇒-1->Q
 ViewWindow Min(List 2)+P×0.40×Min(List 2),Max(List 2)+0.40×Max(List 2),1,Min(List 3)+Q×0.40×Min(List 3),Max(List 3)+0.40×Max(List 3),1
 1->N
-For 1->O To  C-1
+For 1->O To C-1
 O=N(((Abs (J-I))÷K)+1)⇒O+1->O
 O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
 F-Line List 2[O],List 3[O],List 2[O+1],List 3[O+1]
 Next 
-For 1->O To  (((Abs (J-I))÷K)+1)²-(((Abs (J-I))÷K)+1)
+For 1->O To (((Abs (J-I))÷K)+1)²-(((Abs (J-I))÷K)+1)
 F-Line List 2[O],List 3[O],List 2[O+(((Abs (J-I))÷K)+1)],List 3[O+(((Abs (J-I))÷K)+1)]
 Next 
+
+

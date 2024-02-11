@@ -1,4 +1,11 @@
-Lbl ř
+
+
+
+
+
+
+
+Lbl r
 Goto 0
 "NA LISTA 20[1-4] V-WIN NA LISTA20[5-8] PI E PF"
 Lbl 0
@@ -22,5 +29,7 @@ List 20[5]+List 20[9]->List 20[5]
 List 20[6]+List 20[10]->List 20[6]
 List 20[13]+1->List 20[13]
 WhileEnd
-List 20𐏐
+List 20◢
 Return
+
+

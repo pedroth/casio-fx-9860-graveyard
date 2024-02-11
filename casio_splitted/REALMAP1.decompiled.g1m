@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 ClrList 1
 ClrList 2
 0->A~Z
@@ -57,18 +65,18 @@ Lbl 4
 ClrText
 ViewWindow Min(List 1),Max(List 1),1,Min(List 2),Max(List 2),1
 1->N
-For 1->O To  Dim  List 1-1
+For 1->O To Dim  List 1-1
 O=N(((Abs (B-A))÷D))⇒O+1->O
 O≤N(((Abs (B-A))÷D))⇒N+1->N
 F-Line List 1[O],List 2[O],List 1[O+1],List 2[O+1]
 Next 
-For 1->O To  (((Abs (B-A))÷D))²-(((Abs (B-A))÷D))
+For 1->O To (((Abs (B-A))÷D))²-(((Abs (B-A))÷D))
 F-Line List 1[O],List 2[O],List 1[O+(((Abs (B-A))÷D))],List 2[O+(((Abs (B-A))÷D))]
 Next 
 Goto 6
 Lbl 5
 ClrText
-DrawStat
+
 Stop
 Lbl 6
 Text 3,3,"END"
@@ -92,3 +100,7 @@ GetKey
 Ans=27⇒O+1->O
 Ans=38⇒O-1->O
 Goto A
+
+
+
+

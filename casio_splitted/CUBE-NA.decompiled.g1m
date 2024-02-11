@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 0->A~Z
 Rad
 (π÷4)->B
@@ -165,7 +172,7 @@ List 8[2]->List 10[8]
 IfEnd
 0->A
 Lbl 2
-For 1->N To  (Dim  List 9)-1
+For 1->N To (Dim  List 9)-1
 F-Line List 9[N],List 10[N],List 9[N+1],List 10[N+1]
 Next 
 F-Line List 9[4],List 10[4],List 9[1],List 10[1]
@@ -230,3 +237,7 @@ Mat->List(E,7)->List 7
 Mat->List(E,8)->List 8
 List->Mat(1,2,3,4,5,6,7,8)->Mat D
 Goto 0
+
+
+
+

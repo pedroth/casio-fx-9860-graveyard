@@ -1,4 +1,12 @@
-|LabelOff
+
+
+
+
+
+
+
+
+LabelOff
 0->A~Z
 0.1->T
 0.1->S
@@ -20,7 +28,7 @@ ViewWindow 0,10,1,0,10,1
 Lbl 1
 C×(0.25ꜚS)->C
 -3+C->B
-For 1->N To  (Dim  List 1)-1
+For 1->N To (Dim  List 1)-1
 F-Line List 1[N],List 2[N],List 1[N+1],List 2[N+1]
 Next 
 T+0.1->T
@@ -59,3 +67,4 @@ Y->J
 0.1->S
 C+2->C
 Goto 0
+

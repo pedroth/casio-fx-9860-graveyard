@@ -1,4 +1,11 @@
-LNorm 1
+
+
+
+
+
+
+
+Norm 1
 Lbl 0
 ClrText
 ClrList 1
@@ -63,13 +70,13 @@ ClrList 2
 List->Mat(1)->Mat B
 {1,M}->Dim  Mat A
 M->D
-For 1->E To  M
+For 1->E To M
 2^(D-1)->Mat A[1,E]
 D-1->D
 Next 
 Mat A×Mat B->Mat C
 Mat C[1,1]->A
-A𐏐
+A◢
 Goto 4
 Lbl 3
 ClrText
@@ -99,9 +106,11 @@ O=Dim  List 1⇒N+1->N
 List 1[O]×10^(Dim  List 1-O)->List 2[O]
 O+1->O
 WhileEnd
-LList 2𐏐
+Sum List 2◢
 Goto 4
 Lbl 4
-"REPEAT(YN)"?->W
+"REPEAT(Y\N)"?->W
 W=1⇒Goto 0
 W≤2⇒Stop
+
+

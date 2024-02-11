@@ -1,10 +1,17 @@
+
+
+
+
+
+
+
 0->A~Z
 0->Z
 1->A
 1->B
 0->C
 1->N
-0->ř
+0->r
 0->θ
 Lbl 1
 While Z=0
@@ -32,7 +39,7 @@ Locate 2,3,"TETRA"
 Locate 2,4,"SPHERE"
 Locate 2,5,"CIRCLE"
 Locate 2,6,"TORUS"
-Locate 2,7,"XRO F(ř)"
+Locate 2,7,"XRO F(r)"
 Locate A,B,"["
 Locate A+C,B,"]"
 WhileEnd
@@ -50,9 +57,9 @@ Lbl 3
 {0,0,1,1,0,0.5,0,0.5,1,0.5,1,0.5}->List 3
 Prog"3D PLOTC"
 Lbl 4
-"(cos ř)×(cos θ)"->f_1
-"(sin ř)"->f_2
-"(cos ř)×(sin θ)"->f_3
+"(cos r)×(cos θ)"->f_1
+"(sin r)"->f_2
+"(cos r)×(sin θ)"->f_3
 π÷6->K
 1->R
 0->I
@@ -64,21 +71,21 @@ Lbl 5
 Prog"PARAMCUR"
 Lbl 6
 While Z=0
-ř=2π⇒1->Z
-cos ř->X
-sin ř->Y
+r=2π⇒1->Z
+cos r->X
+sin r->Y
 X->List 1[N]
 Y->List 2[N]
 0->List 3[N]
-ř+(π÷12)->ř
+r+(π÷12)->r
 N+1->N
 WhileEnd
 While Z=1
 Prog"3D PLOTC"
 Lbl 7
-"3(cos θ)+(cos ř)(cos θ)"->f_1
-"3(sin θ)+(cos ř)×(sin θ)"->f_2
-"(sin ř)"->f_3
+"3(cos θ)+(cos r)(cos θ)"->f_1
+"3(sin θ)+(cos r)×(sin θ)"->f_2
+"(sin r)"->f_3
 π÷6->K
 1->R
 0->I
@@ -89,15 +96,19 @@ Lbl 7
 Prog"PARAMCUR"
 Lbl A
 ClrText
-"X-ROTATED F(ř)"?->f_4 
-"ř"->f_1
+"X-ROTATED F(r)"?->f_4 
+"r"->f_1
 "(cos θ)×(f_4 )"->f_2
 "(sin θ)×(f_4 )"->f_3
 π÷6->K
 1->R
-"ř MIN"?->I
-"ř MAX"?->J
+"r MIN"?->I
+"r MAX"?->J
 0->C
 π÷3->A
 π÷3->B
 Prog"PARAMCUR"
+
+
+
+

@@ -169,5 +169,5 @@ const dir = "./casio_decompiled";
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
-fs.writeFileSync(`${dir}/${fileName}_decompiled.g1m`, decompiledFile.join(""));
+fs.writeFileSync(`${dir}/${fileName}.decompiled.g1m`, decompiledFile.join(""));
 

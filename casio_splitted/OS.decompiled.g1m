@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 AxesOff
 0->W
 45->A
@@ -43,7 +51,7 @@ Text 22,50,"VECTOR"
 Text 32,50,"QUATER"
 Text 42,50,"AREA"
 Text 52,50,"PISUAZE"
-Text 55,82,""
+Text 55,82,"▼"
 Lbl 6
 D=5⇒Goto 7
 PlotChg (C+1),D
@@ -81,7 +89,7 @@ Text 22,50,"QUATER"
 Text 32,50,"AREA"
 Text 42,50,"PISUAZE"
 Text 52,50,"SCREEN"
-Text 2,82,""
+Text 2,82,"°"
 5->Z
 Lbl 9
 D=95⇒Goto 0
@@ -101,3 +109,5 @@ While W=2
 
 WhileEnd
 Goto 9
+
+

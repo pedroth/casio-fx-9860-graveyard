@@ -1,4 +1,12 @@
-≤ClrGraph
+
+
+
+
+
+
+
+
+ClrGraph
 AxesOff
 ClrList 1
 ClrList 2
@@ -46,13 +54,13 @@ List 2+List 4->List 4
 List 3->List 3
 List 4->List 4
 Lbl 4
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 F-Line List 1[N],List 2[N],List 3[N],List 4[N]
 Next 
 
 cos (π÷6)->Mat B[1,1]
 sin (π÷6)->Mat B[2,1]
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 List 3[N]->Mat A[1,1]
 List 4[N]-1->Mat A[2,1]
 List 3[N]-1->Mat A[1,2]
@@ -62,7 +70,7 @@ F-Line List 3[N],List 4[N],R×Mat C[1,1],R×Mat C[2,1]
 Next 
 cos (π÷3)->Mat B[1,1]
 sin (π÷3)->Mat B[2,1]
-For 1->N To  Dim  List 1
+For 1->N To Dim  List 1
 List 3[N]->Mat A[1,1]
 List 4[N]-1->Mat A[2,1]
 List 3[N]-1->Mat A[1,2]
@@ -70,3 +78,5 @@ List 4[N]->Mat A[2,2]
 Mat A×Mat B->Mat C
 F-Line List 3[N],List 4[N],R×Mat C[1,1],R×Mat C[2,1]
 Next 
+
+

@@ -1,4 +1,11 @@
-l0->A~Z
+
+
+
+
+
+
+
+0->A~Z
 Rad
 (π÷4)->B
 (π÷12)->X
@@ -28,7 +35,7 @@ AxesOff
 AxesOn
 Lbl 0
 ViewWindow Min(List 9)-1.5,Max(List 10)+1.5,1,Min(List 10)-1.5,Max(List 10)+1.5,1
-(tan (π÷4))X
+Graph Y=(tan (π÷4))X
 Lbl 1
 List 1[3]<0⇒-1->A
 List 1[3]>0⇒1->A
@@ -167,7 +174,7 @@ List 8[2]->List 10[8]
 IfEnd
 0->A
 Lbl 2
-For 1->N To  (Dim  List 9)-1
+For 1->N To (Dim  List 9)-1
 F-Line List 9[N],List 10[N],List 9[N+1],List 10[N+1]
 Next 
 F-Line List 9[4],List 10[4],List 9[1],List 10[1]
@@ -256,3 +263,5 @@ Mat->List(E,7)->List 7
 Mat->List(E,8)->List 8
 List->Mat(1,2,3,4,5,6,7,8)->Mat D
 Goto 0
+
+
