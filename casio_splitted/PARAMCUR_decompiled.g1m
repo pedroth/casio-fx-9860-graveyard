@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 AxesOff
 Rad
 ClrList 1
@@ -14,10 +22,12 @@ ClrMat C
 ClrMat D
 LabelOff
 AxesOff
+R=1⇒Goto A
 0->A~Z
+Lbl A
 π÷3->A
 1->N
-π÷24->B
+π÷12->B
 {-1,1,0,0,0,0,0,0}->List 24
 {0,0,0,-1,1,0,0,0}->List 25
 {0,0,0,0,0,0,-1,1}->List 26
@@ -32,36 +42,33 @@ ClrList 5
 ClrList 6
 ClrList 7
 ClrList 8
-"Y=F(X,Z)"?->f_1
-"X,Z MIN"?->I
-"X,Z MAX"?->J
+R=1⇒Goto B
+"X=F(r,θ)"?->f_1
+"Y=F(r,θ)"?->f_2
+"Z=F(r,θ)"?->f_3
+"r,θ MIN"?->I
+"r,θ MAX"?->J
 Lbl θ
 "STEP"?->K
-I->X
-I->Z
+I->r
+I->θ
 (Abs (J-I))÷(√249)->L
 K<L⇒"HIGHER STEP"
 K<L⇒Goto θ
+Lbl B
 1->H
-f_1=(X÷Z)⇒1->V
+(((Abs (J-I))÷(K))+1)²->D
 While W=0
-V=1 And X>J And Z+K=0⇒Z+K->Z
-Z>J⇒1->W
-X>J⇒Z+K->Z
-X>J⇒I->X
-X->List 1[H]
-Z->List 3[H]
-f_1->List 2[H]
-X+K->X
+H≤D⇒1->W
+r>J⇒θ+K->θ
+r>J⇒I->r
+f_1->List 1[H]
+f_3->List 3[H]
+f_2->List 2[H]
+r+K->r
 Isz H
 WhileEnd
-List 1[Dim  List 1-2]->List 1[Dim  List 1-1]
-List 2[Dim  List 1-2]->List 2[Dim  List 1-1]
-List 3[Dim  List 1-2]->List 3[Dim  List 1-1]
-List 1[Dim  List 1-2]->List 1[Dim  List 1]
-List 2[Dim  List 1-2]->List 2[Dim  List 1]
-List 3[Dim  List 1-2]->List 3[Dim  List 1]
-Lbl ř
+Lbl r
 ClrList 24
 ClrList 25
 ClrList 26
@@ -76,27 +83,25 @@ Trn Mat G->Mat G
 Mat->List(G,1)->List 25
 Mat->List(G,2)->List 26
 Lbl 0
-ViewWindow Min(List 4)-1,Max(List 4)+1,1,Min(List 5)-0.5,Max(List 5)+0.5,1
+Min(List 4)<0⇒1->P
+Min(List 4)>0⇒-1->P
+Min(List 5)<0⇒1->Q
+Min(List 5)>0⇒-1->Q
+ViewWindow Min(List 4)+P×0.40×Min(List 4),Max(List 4)+0.40×Max(List 4),1,Min(List 5)+Q×0.40×Min(List 5),Max(List 5)+0.40×Max(List 5),1
 Lbl 1
 0->Z
-For 1->O To  Dim  List 25-1
+For 1->O To Dim  List 25-1
 F-Line List 25[O],List 26[O],List 25[O+1],List 26[O+1]
 Next 
-For 1->O To  (Dim  List 4)-1
-List 1[O]=J⇒Isz O
+1->N
+For 1->O To (Dim  List 4)-1
+O=N(((Abs (J-I))÷K)+1)⇒O+1->O
+O≤N(((Abs (J-I))÷K)+1)⇒N+1->N
 F-Line List 4[O],List 5[O],List 4[O+1],List 5[O+1]
 Next 
-1->O
-While V=1
-((J-I)÷K)+O+1≤Dim  List 1⇒Goto A
-F-Line List 4[O],List 5[O],List 4[((J-I)÷K)+1+O],List 5[((J-I)÷K)+1+O]
-O+1->O
-WhileEnd
-For 1->O To  (((J-I)÷K)+0.48808848)²
-F-Line List 4[O],List 5[O],List 4[((J-I)÷K)+1+O],List 5[((J-I)÷K)+1+O]
+For 1->O To (((J-I)÷K)+1)²-(((Abs (J-I))÷K)+1)
+F-Line List 4[O],List 5[O],List 4[O+(((Abs (J-I))÷K)+1)],List 5[O+(((Abs (J-I))÷K)+1)]
 Next 
-W=2⇒Goto 6
-Lbl A
 While Z=0
 GetKey
 Ans=27⇒Goto 4
@@ -105,8 +110,6 @@ Ans=37⇒2->Z
 Ans=38⇒1->Z
 Ans=53⇒7->Z
 Ans=73⇒8->Z
-Ans=79⇒9->Z
-Ans=39⇒10->Z
 Z≠0⇒Goto 5
 WhileEnd
 Lbl 2
@@ -171,9 +174,6 @@ List->Mat(7,8)->Mat D
 Trn Mat D->Mat D
 0×List 4->List 4
 List 4->List 5
-List 4->List 6
-List 4->List 7
-List 4->List 8
 0->Z
 Goto 2
 WhileEnd
@@ -186,45 +186,7 @@ List->Mat(7,8)->Mat D
 Trn Mat D->Mat D
 0×List 4->List 4
 List 4->List 5
-List 4->List 6
-List 4->List 7
-List 4->List 8
 0->Z
 Goto 2
-WhileEnd
-While Z=9
-ClrText
-Text 58,1,"X="
-Text 58,10,List 1[N]
-PlotChg List 4[N],List 5[N]
-Text 58,30,"Y="
-Text 58,40,List 2[N]
-Text 58,90,"Z="
-Text 58,100,List 3[N]
-GetKey
-Ans=27⇒N+1->N
-Ans=38⇒N-1->N
-WhileEnd
-While Z=10
-0->W
-Text 58,1,"ROOTS"
-GetKey
-Ans=79⇒Goto 6
-WhileEnd
-Lbl 6
-ViewWindow Min(List 4)-1,Max(List 4)+1,1,Min(List 5)-0.5,Max(List 5)+0.5,1
-While W=0
-Z>J⇒1->W
-X>J⇒Z+0.001->Z
-X>J⇒I->X
-f_1=0⇒2->W
-f_1=0⇒Goto 2
-X+0.001->X
-WhileEnd
-While W=1
-"NO REAL ROOTS"
-WhileEnd
-While W=2
-PlotChg Xcos C+Zcos A,Xsin C+Zsin A
 WhileEnd
 

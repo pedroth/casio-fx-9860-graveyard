@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+
+
+
+0->A~Z
+Lbl 1
+"Q1"
+"A"?->A
+"B"?->B
+"C"?->C
+"D"?->D
+""
+""
+"Q2"
+"E"?->E
+"F"?->F
+"G"?->G
+"H"?->H
+(AE-BF-CG-DH)->M
+(AF+BE+CH-DG)->N
+(AG-BH+CE+DF)->O
+(AH+BG-CF+DE)->P
+Lbl 2
+ClrText
+{M,N,O,P}->List 25
+List 25◢
+
+
+
